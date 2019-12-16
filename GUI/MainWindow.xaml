@@ -1,0 +1,42 @@
+﻿<Window x:Class="WelcomeScreen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WelcomeScreen"
+        mc:Ignorable="d"
+        Title="PeeMath" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+            <ColumnDefinition>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" FontSize="45" Margin="15 15 15 15"
+                   VerticalAlignment="Center" HorizontalAlignment="Center">
+            Welcome to PeeMath!
+        </TextBlock>
+
+
+        <Button Name="Enter" Click="EnterAppClick"
+                Grid.Row="1" Grid.ColumnSpan="2" Margin="300 40 300 40"
+                FontSize="45">
+            Enter
+        </Button>
+        
+        <Button Name="FAQ" Click="FAQButtonClick"
+                Grid.Row="2" Grid.ColumnSpan="2" Margin="350 60 350 60"
+                FontSize="15">
+            F.A.Q
+        </Button>
+    </Grid>
+</Window>
