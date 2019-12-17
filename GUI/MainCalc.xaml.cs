@@ -24,37 +24,37 @@ namespace WelcomeScreen
 
         public void PlusClick(object sender, RoutedEventArgs e)
         {
-
+            EnterField.Text += "+";
         }
 
         public void MinusClick(object sender, RoutedEventArgs e)
         {
-
+            EnterField.Text += "-";
         }
 
         public void MultiplyClick(object sender, RoutedEventArgs e)
         {
-
+            EnterField.Text += "*";
         }
 
         public void DivideClick(object sender, RoutedEventArgs e)
         {
-
+            EnterField.Text += "/";
         }
 
         public void LNClick(object sender, RoutedEventArgs e)
         {
-
+            EnterField.Text += "ln()";
         }
 
         public void LogClick(object sender, RoutedEventArgs e)
         {
-
+            EnterField.Text += "log(base, number)";
         }
 
         public void EqualClick(object sender, RoutedEventArgs e)
         {
-
+            EnterField.Clear();
         }
     }
 }

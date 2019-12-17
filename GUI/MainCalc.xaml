@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WelcomeScreen"
         mc:Ignorable="d"
-        Title="PeeMath" Height="900" Width="800">
+        Title="PeeMath" Height="700" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition>
@@ -33,7 +33,9 @@
         <TextBox Name ="EnterField"
                  Grid.Row="0" Grid.ColumnSpan="6" Margin="15 15 15 15"
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                 Background="Gray">
+                 Background="Gray" 
+                 FontSize="95"
+                 CaretBrush="Black">
         </TextBox>
 
         <Button Name="Plus" Click="PlusClick"
