@@ -21,5 +21,40 @@ namespace WelcomeScreen
         {
             InitializeComponent();
         }
+
+        public void PlusClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void MinusClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void MultiplyClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void DivideClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void LNClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void LogClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void EqualClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

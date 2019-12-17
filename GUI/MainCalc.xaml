@@ -1,4 +1,4 @@
-﻿<Window x:Class="WelcomeScreen.MainCalc"
+﻿    <Window x:Class="WelcomeScreen.MainCalc"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,12 +8,6 @@
         Title="PeeMath" Height="900" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition>
-            </ColumnDefinition>
-            <ColumnDefinition>
-            </ColumnDefinition>
-            <ColumnDefinition>
-            </ColumnDefinition>
             <ColumnDefinition>
             </ColumnDefinition>
             <ColumnDefinition>
@@ -34,17 +28,58 @@
             </RowDefinition>
             <RowDefinition>
             </RowDefinition>
-            <RowDefinition>
-            </RowDefinition>
-            <RowDefinition>
-            </RowDefinition>
-            <RowDefinition>
-            </RowDefinition>
         </Grid.RowDefinitions>
 
         <TextBox Name ="EnterField"
-                 Grid.Row="0" Grid.ColumnSpan="8" Margin="15 15 15 15"
-                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                 Grid.Row="0" Grid.ColumnSpan="6" Margin="15 15 15 15"
+                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                 Background="Gray">
         </TextBox>
+
+        <Button Name="Plus" Click="PlusClick"
+                Grid.Row="1" Grid.Column="4"
+                FontSize="95" Background="LightGray">
+            &#43;
+        </Button>
+
+        <Button Name="Minus" Click="MinusClick"
+                Grid.Row="1" Grid.Column="3"
+                FontSize="95" 
+                Background="LightGray" BorderBrush="Black">
+            &#8722;
+        </Button>
+        <Button Name="Multiply" Click="MultiplyClick"
+                Grid.Row="2" Grid.Column="4"
+                FontSize="95" 
+                Background="LightGray" BorderBrush="Black">
+            &#215;
+        </Button>
+        <Button Name ="Divide" Click="DivideClick"
+                Grid.Row="2" Grid.Column="3"
+                FontSize="95" 
+                Background="LightGray" BorderBrush="Black">
+            &#247;
+        </Button>
+
+        <Button Name="LN" Click="LNClick"
+                Grid.Row="1" Grid.Column="2"
+                FontSize="95" 
+                Background="LightGray" BorderBrush="Black">
+            &#13265;
+        </Button>
+
+        <Button Name="Log" Click="LogClick"
+                Grid.Row="2" Grid.Column="2"
+                FontSize="95"
+                Background="LightGray" BorderBrush="Black">
+            &#13266;
+        </Button>
+
+        <Button Name ="Equal" Click="EqualClick"
+                Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3"
+                 FontSize="95"
+                Background="LightGray" BorderBrush="Black">
+            &#61;
+        </Button>
     </Grid>
 </Window>
