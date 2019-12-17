@@ -61,7 +61,40 @@ namespace WelcomeScreen
         {
             EnterField.Text += "^(y)";
         }
+        public void SinClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "sin(x)";
+        }
 
+        public void CosClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "cos(x)";
+        }
+
+        public void TgClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "tg(x)";
+        }
+
+        public void CtgClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "ctg(x)";
+        }
+
+        public void FactorialClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "!";
+        }
+
+        public void PercentClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "%";
+        }
+
+        public void PeeClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "\u03C0";
+        }
         public void EqualClick(object sender, RoutedEventArgs e)
         {
             EnterField.Clear();

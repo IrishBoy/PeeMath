@@ -46,78 +46,146 @@
                     </RowDefinition>
                     <RowDefinition>
                     </RowDefinition>
+                    <RowDefinition>
+                    </RowDefinition>
                 </Grid.RowDefinitions>
 
                 <TextBox Name ="EnterField"
                      Grid.Row="0" Grid.ColumnSpan="6" Margin="15 15 15 15"
-                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Top"
                      Background="Gray" 
-                     FontSize="95"
-                     CaretBrush="Black">
+                     FontSize="75"
+                     CaretBrush="Red">
                 </TextBox>
 
                 <Button Name="Plus" Click="PlusClick"
-                        Grid.Row="1" Grid.Column="4"
-                        FontSize="95" Background="LightGray">
+                        Grid.Row="2" Grid.Column="4"
+                        FontSize="95"
+                        Background="LightGray"
+                        BorderThickness="0">
                     &#43;
                 </Button>
 
                 <Button Name="Minus" Click="MinusClick"
-                        Grid.Row="1" Grid.Column="3"
+                        Grid.Row="2" Grid.Column="3"
                         FontSize="95" 
-                        Background="LightGray" BorderBrush="Black">
+                        Background="LightGray"
+                        BorderThickness="0">
                     &#8722;
                 </Button>
                 <Button Name="Multiply" Click="MultiplyClick"
-                        Grid.Row="2" Grid.Column="4"
+                        Grid.Row="3" Grid.Column="4"
                         FontSize="95" 
-                        Background="LightGray" BorderBrush="Black">
+                        Background="LightGray"
+                        BorderThickness="0">
                     &#215;
                 </Button>
                 <Button Name ="Divide" Click="DivideClick"
-                        Grid.Row="2" Grid.Column="3"
+                        Grid.Row="3" Grid.Column="3"
                         FontSize="95" 
-                        Background="LightGray" BorderBrush="Black">
+                        Background="LightGray"
+                        BorderThickness="0">
                     &#247;
                 </Button>
 
                 <Button Name="LN" Click="LNClick"
-                        Grid.Row="1" Grid.Column="2"
+                        Grid.Row="2" Grid.Column="2"
                         FontSize="95" 
-                        Background="LightGray" BorderBrush="Black">
+                        Background="LightGray"
+                        BorderThickness="0">
                     &#13265;
                 </Button>
 
                 <Button Name="Log" Click="LogClick"
-                        Grid.Row="2" Grid.Column="2"
+                        Grid.Row="3" Grid.Column="2"
                         FontSize="95"
-                        Background="LightGray" BorderBrush="Black">
+                        Background="LightGray"
+                        BorderThickness="0">
                     &#13266;
                 </Button>
 
                 <Button Name ="Equal" Click="EqualClick"
-                        Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3"
+                        Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3"
                          FontSize="95"
-                        Background="LightGray" BorderBrush="Black">
+                        Background="LightGray"
+                        BorderThickness="0">
                     &#61;
                 </Button>
 
                 <Button Name="Squaere" Click="SquareClick"
-                        Grid.Row="1" Grid.Column="1"
+                        Grid.Row="2" Grid.Column="1"
                         FontSize="95"
-                        Background="LightGray" BorderBrush="Black">
+                        Background="LightGray"
+                        BorderThickness="0">
                     X&#178;
                </Button>
 
                 <Button Name="Power" Click="PowerClick"
-                        Grid.Row="2" Grid.Column="1"
+                        Grid.Row="3" Grid.Column="1"
                         FontSize="95"
-                        Background="LightGray" BorderBrush="Black">
-                    <TextBlock FontFamily="Palatino Linotype">
+                        Background="LightGray"
+                        BorderThickness="0">
+                    <TextBlock>
                     <Run>X</Run>
                     <Run FontSize="60" BaselineAlignment="TextTop">y</Run>
                     </TextBlock>
                 </Button>
+
+                <Button Name="Sin" Click="SinClick"
+                        Grid.Row="1" Grid.Column="1"
+                        FontSize="95"
+                        Background="LightGray"
+                        BorderThickness="0">
+                    sin
+                </Button>
+                <Button Name="Cos" Click="CosClick"
+                        Grid.Row="1" Grid.Column="2"
+                        FontSize="95"
+                        Background="LightGray"
+                        BorderThickness="0">
+                    cos
+                </Button>
+                <Button Name="Tg" Click="TgClick"
+                        Grid.Row="1" Grid.Column="3"
+                        FontSize="95"
+                        Background="LightGray"
+                        BorderThickness="0">
+                    tg
+                </Button>
+                <Button Name="Ctg" Click="CtgClick"
+                        Grid.Row="1" Grid.Column="4"
+                        FontSize="95"
+                        Background="LightGray"
+                        BorderThickness="0">
+                    ctg
+                </Button>
+
+                <Button Name="Factorial" Click="FactorialClick"
+                        Grid.Row="1" Grid.Column="0"
+                        FontSize="95"
+                        Background="LightGray"
+                        BorderThickness="0">
+                    x!
+                </Button>
+
+                <Button Name="Percent" Click="PercentClick"
+                        Grid.Row="2" Grid.Column="0"
+                        FontSize="95"
+                        Background="LightGray"
+                        BorderThickness="0">
+                    %
+                </Button>
+
+                <Button Name="Pee" Click="PeeClick"
+                        Grid.Row="3" Grid.Column="0"
+                        FontSize="95"
+                        Background="LightGray"
+                        BorderThickness="0">
+                    &#960;
+                </Button>
+
+
+
             </Grid>
         </TabItem>
         <TabItem Header="Meassures" FontSize="20">
