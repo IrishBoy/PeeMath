@@ -52,6 +52,16 @@ namespace WelcomeScreen
             EnterField.Text += "log(base, number)";
         }
 
+        public void SquareClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "^(2)";
+        }
+
+        public void PowerClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "^(y)";
+        }
+
         public void EqualClick(object sender, RoutedEventArgs e)
         {
             EnterField.Clear();

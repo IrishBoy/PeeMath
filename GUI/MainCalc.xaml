@@ -101,6 +101,23 @@
                         Background="LightGray" BorderBrush="Black">
                     &#61;
                 </Button>
+
+                <Button Name="Squaere" Click="SquareClick"
+                        Grid.Row="1" Grid.Column="1"
+                        FontSize="95"
+                        Background="LightGray" BorderBrush="Black">
+                    X&#178;
+               </Button>
+
+                <Button Name="Power" Click="PowerClick"
+                        Grid.Row="2" Grid.Column="1"
+                        FontSize="95"
+                        Background="LightGray" BorderBrush="Black">
+                    <TextBlock FontFamily="Palatino Linotype">
+                    <Run>X</Run>
+                    <Run FontSize="60" BaselineAlignment="TextTop">y</Run>
+                    </TextBlock>
+                </Button>
             </Grid>
         </TabItem>
         <TabItem Header="Meassures" FontSize="20">
