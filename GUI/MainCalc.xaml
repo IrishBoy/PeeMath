@@ -23,7 +23,7 @@
                 </Setter>
             </Style>
         </TabControl.Resources>
-        <TabItem Header="Simple Calculator" FontSize="20">
+        <TabItem Header="Simple Calculator" FontSize="20" Height="166" Margin="0,-2,-2,0" VerticalAlignment="Top">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition>
@@ -212,6 +212,56 @@
             </Grid>
         </TabItem>
         <TabItem Header="Meassures" FontSize="20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80">
+                    </RowDefinition>
+                    <RowDefinition>
+                    </RowDefinition>
+                    <RowDefinition>
+                    </RowDefinition>
+                    <RowDefinition Height="80">
+                    </RowDefinition>
+                    <RowDefinition>
+                    </RowDefinition>
+                    <RowDefinition>
+                    </RowDefinition>
+                    <RowDefinition>
+                    </RowDefinition>
+                    <RowDefinition>
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Row="0" Grid.ColumnSpan="2" Fill="LightGray" />
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
+                           FontSize="60"
+                           HorizontalAlignment="Center" VerticalAlignment="Center">
+                    Time
+                </TextBlock>
+
+                <Rectangle Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Fill="LightGray" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"
+                           FontSize="60"
+                           HorizontalAlignment="Center" VerticalAlignment="Center">
+                    Weight
+                </TextBlock>
+
+                <Rectangle Grid.Row="4" Grid.ColumnSpan="2" Fill="LightGray" />
+                <TextBlock Grid.Row="4" Grid.ColumnSpan="2"
+                           FontSize="60"
+                           HorizontalAlignment="Center" VerticalAlignment="Center">
+                    Length
+                </TextBlock>
+            </Grid>
         </TabItem>
         <TabItem Header="Limits" FontSize="20">
         </TabItem>
