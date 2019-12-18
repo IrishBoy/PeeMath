@@ -101,9 +101,21 @@ namespace WelcomeScreen
         {
             EnterField.Text += "\u221A";
         }
+
+        public void DegreeClicl(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "\u00B0";
+        }
+
+        public void RadianClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "(rad)";
+        }
+
         public void EqualClick(object sender, RoutedEventArgs e)
         {
             EnterField.Clear();
         }
+
     }
 }
