@@ -95,6 +95,12 @@ namespace WelcomeScreen
         {
             EnterField.Text += "\u03C0";
         }
+
+
+        public void SquareRootClick(object sender, RoutedEventArgs e)
+        {
+            EnterField.Text += "\u221A";
+        }
         public void EqualClick(object sender, RoutedEventArgs e)
         {
             EnterField.Clear();

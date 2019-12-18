@@ -184,6 +184,14 @@
                     &#960;
                 </Button>
 
+                <Button Name="SquareRoot" Click="SquareRootClick"
+                        Grid.Row="4" Grid.Column="1"
+                        FontSize="95"
+                        Background="LightGray"
+                        BorderThickness="0">
+                    &#8730;
+                </Button>
+
 
 
             </Grid>
