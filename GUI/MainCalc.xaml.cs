@@ -201,36 +201,140 @@ namespace WelcomeScreen
 
         public void SecMinClick(object sender, RoutedEventArgs e)
         {
-
+            string Sec_Min = SecToMin.Text;
+            string Min_Sec = SecToMin.Text;
+            double secs;
+            double mins;
+            if (Double.TryParse(Sec_Min, out secs))
+            {
+                double cur_mins = currs.FromSecondsToMinutes(double.Parse(Sec_Min, styles, cur_culture));
+                MinToSec.Text = cur_mins.ToString("F6");
+            }
+            else if (!(Double.TryParse(Sec_Min, out secs)) && (Double.TryParse(Min_Sec, out secs)))
+            {
+                double cur_secs = currs.FromMinutesToSeconds(double.Parse(Min_Sec, styles, cur_culture));
+                MinToSec.Text = cur_secs.ToString("F6");
+            }
+            else
+            {
+                SecToMin.Clear();
+                SecToMin.Text = formatError;
+            }
         }
         public void SecHoursClick(object sender, RoutedEventArgs e)
         {
-
+            string Sec_Hour = SecToHours.Text;
+            string Hour_Sec = HoursToSec.Text;
+            double secs;
+            double hours;
+            if (Double.TryParse(Sec_Hour, out hours))
+            {
+                double cur_hours = currs.FromSecondsToHours(double.Parse(Sec_Hour, styles, cur_culture));
+                HoursToSec.Text = cur_hours.ToString("F6");
+            }
+            else if (!(Double.TryParse(Sec_Hour, out hours)) && (Double.TryParse(Hour_Sec, out secs)))
+            {
+                double cur_secs = currs.FromHoursToSeconds(double.Parse(Hour_Sec, styles, cur_culture));
+                HoursToSec.Text = cur_secs.ToString("F6");
+            }
+            else
+            {
+                SecToHours.Clear();
+                SecToHours.Text = formatError;
+            }
         }
 
         public void SecDaysClick(object sender, RoutedEventArgs e)
         {
-
+            string Sec_Day = SecToDays.Text;
+            string Day_Sec = DaysToSec.Text;
+            double secs;
+            double days;
+            if (Double.TryParse(Sec_Day, out days))
+            {
+                double cur_days = currs.FromSecondsToDays(double.Parse(Sec_Day, styles, cur_culture));
+                DaysToSec.Text = cur_days.ToString("F6");
+            }
+            else if (!(Double.TryParse(Sec_Day, out days)) && (Double.TryParse(Day_Sec, out secs)))
+            {
+                double cur_secs = currs.FromDaysToSeconds(double.Parse(Day_Sec, styles, cur_culture));
+                SecToDays.Text = cur_secs.ToString("F6");
+            }
+            else
+            {
+                SecToDays.Clear();
+                SecToDays.Text = formatError;
+            }
         }
 
         public void MinHoursClick(object sender, RoutedEventArgs e)
         {
-
+            string Min_Hour = MinToHours.Text;
+            string Hour_Min = HoursToMin.Text;
+            double mins;
+            double hours;
+            if (Double.TryParse(Min_Hour, out hours))
+            {
+                double cur_hours = currs.FromMinutesToHours(double.Parse(Min_Hour, styles, cur_culture));
+                HoursToMin.Text = cur_hours.ToString("F6");
+            }
+            else if (!(Double.TryParse(Min_Hour, out hours)) && (Double.TryParse(Hour_Min, out mins)))
+            {
+                double cur_mins = currs.FromHoursToMinutes(double.Parse(Hour_Min, styles, cur_culture));
+                MinToHours.Text = cur_mins.ToString("F6");
+            }
+            else
+            {
+                MinToHours.Clear();
+                MinToHours.Text = formatError;
+            }
         }
 
         public void MinDaysClick(object sender, RoutedEventArgs e)
         {
-
+            string Min_Day = MinToDays.Text;
+            string Day_Min = DaysToMin.Text;
+            double mins;
+            double days;
+            if (Double.TryParse(Min_Day, out days))
+            {
+                double cur_days = currs.FromMinutesToDays(double.Parse(Min_Day, styles, cur_culture));
+                DaysToMin.Text = cur_days.ToString("F6");
+            }
+            else if (!(Double.TryParse(Min_Day, out days)) && (Double.TryParse(Day_Min, out mins)))
+            {
+                double cur_mins = currs.FromDaysToMinutes(double.Parse(Day_Min, styles, cur_culture));
+                MinToDays.Text = cur_mins.ToString("F6");
+            }
+            else
+            {
+                DaysToMin.Clear();
+                DaysToMin.Text = formatError;
+            }
         }
 
         public void HoursDaysClick(object sender, RoutedEventArgs e)
         {
-
+            string Hour_Day = HoursToDays.Text;
+            string Day_Hour = DaysToHours.Text;
+            double hours;
+            double days;
+            if (Double.TryParse(Hour_Day, out days))
+            {
+                double cur_days = currs.FromHoursToDays(double.Parse(Hour_Day, styles, cur_culture));
+                DaysToHours.Text = cur_days.ToString("F6");
+            }
+            else if (!(Double.TryParse(Hour_Day, out days)) && (Double.TryParse(Day_Hour, out hours)))
+            {
+                double cur_hours = currs.FromDaysToHours(double.Parse(Day_Hour, styles, cur_culture));
+                HoursToDays.Text = cur_hours.ToString("F6");
+            }
+            else
+            {
+                DaysToHours.Clear();
+                DaysToHours.Text = formatError;
+            }
         }
 
-        private void OtherMeasClick(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
