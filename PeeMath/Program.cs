@@ -56,8 +56,6 @@ namespace PeeMath
             xmlNode = euroXmlDocument.SelectSingleNode("Valute/Value");
             double euroValue = Convert.ToDouble(xmlNode.InnerText);
 
-            Currencies currentCur = new Currencies(usdValue, euroValue);
-            Calculations calc = new Calculations();
         }
     }
 }

@@ -4,16 +4,10 @@ using System.Text;
 
 namespace PeeMath
 {
-    class Currencies
+    public class Currencies
     {
         double usdValue;
         double euroValue;
-
-        public Currencies(double _usdValue, double _euroValue)
-        {
-            usdValue = _usdValue;
-            euroValue = _euroValue;
-        }
 
         public double FromDaysToHours(double a)
         {

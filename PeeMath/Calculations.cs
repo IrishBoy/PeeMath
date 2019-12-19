@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace PeeMath
 {
-    class Calculations
+    public class Calculations
     {
         public static double Summary(double a, double b)
         {
@@ -33,7 +33,7 @@ namespace PeeMath
             return a * a;
         }
 
-        public static double Exponentiation(double a, int b)
+        public static double Exponentiation(double a, double b)
         {
             return Math.Pow(a, b);
         }

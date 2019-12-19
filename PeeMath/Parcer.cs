@@ -1,0 +1,130 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+using System.Text.RegularExpressions;
+
+namespace PeeMath
+{
+    public static class Parser
+    {
+        public static bool TryParse(string str)
+        {
+            try
+            {
+                Parsing(str);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
+        public static double Parsing(string str)
+        {
+            string[] func = { "sin", "cos", "ctg", "tg", "arcsin", "arccos", "arcctg", "arctg" };
+            for (int i = 0; i < func.Length; i++)
+            {
+                Match matchFunc = Regex.Match(str, string.Format(@"{0}\(({1})\)", func[i], @"[1234567890\.\+\-\*\/^%]*"));
+                if (matchFunc.Groups.Count > 1)
+                {
+                    string middle = matchFunc.Groups[0].Value.Substring(1 + func[i].Length, matchFunc.Groups[0].Value.Trim().Length - 2 - func[i].Length);
+                    string left = str.Substring(0, matchFunc.Index);
+                    string right = str.Substring(matchFunc.Index + matchFunc.Length);
+
+                    switch (i)
+                    {
+                        case 0:
+                            return Parsing(left + Calculations.Sin(Convert.ToDouble(middle)) + right);
+
+                        case 1:
+                            return Parsing(left + Calculations.Cos(Convert.ToDouble(middle)) + right);
+
+                        case 2:
+                            return Parsing(left + Calculations.Tg(Convert.ToDouble(middle)) + right);
+
+                        case 3:
+                            return Parsing(left + Calculations.Ctg(Convert.ToDouble(middle)) + right);
+
+                        case 4:
+                            return Parsing(left + Calculations.Arcsin(Convert.ToDouble(middle)) + right);
+
+                        case 5:
+                            return Parsing(left + Calculations.Arccos(Convert.ToDouble(middle)) + right);
+
+                        case 6:
+                            return Parsing(left + Calculations.Arctg(Convert.ToDouble(middle)) + right);
+
+                        case 7:
+                            return Parsing(left + Calculations.Arcctg(Convert.ToDouble(middle)) + right);
+
+                    }
+                }
+            }
+
+            // Парсинг скобок
+            Match matchBrackets = Regex.Match(str, string.Format(@"\(({0})\)", @"[1234567890\.\+\-\*\/^%]*"));
+            if (matchBrackets.Groups.Count > 1)
+            {
+                string middle = matchBrackets.Groups[0].Value.Substring(1, matchBrackets.Groups[0].Value.Trim().Length - 2);
+                string left = str.Substring(0, matchBrackets.Index);
+                string right = str.Substring(matchBrackets.Index + matchBrackets.Length);
+                return Parsing(left + Parsing(middle) + right);
+            }
+
+            // Парсинг действий
+            Match matchMulOp = Regex.Match(str, string.Format(@"({0})\s?({1})\s?({0})\s?", @"[-]?\d+\.?\d*", @"[\*\/^%]"));
+            Match matchAddOp = Regex.Match(str, string.Format(@"({0})\s?({1})\s?({2})\s?", @"[-]?\d+\.?\d*", @"[\+\-]", @"[-]?\d+\.?\d*"));
+            var match = (matchMulOp.Groups.Count > 1) ? matchMulOp : (matchAddOp.Groups.Count > 1) ? matchAddOp : null;
+            if (match != null)
+            {
+                string left = str.Substring(0, match.Index);
+                string right = str.Substring(match.Index + match.Length);
+                string val = ParseAct(match).ToString(CultureInfo.InvariantCulture);
+                return Parsing(string.Format("{0}{1}{2}", left, val, right));
+            }
+
+            // Парсинг числа
+            try
+            {
+                return double.Parse(str, CultureInfo.InvariantCulture);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException(string.Format("Неверная входная строка '{0}'", str));
+            }
+        }
+
+
+        private static double ParseAct(Match match)
+        {
+            double a = double.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture);
+            double b = double.Parse(match.Groups[3].Value, CultureInfo.InvariantCulture);
+
+            switch (match.Groups[2].Value)
+            {
+                case "+":
+                    return Calculations.Summary(a, b);
+
+                case "-":
+                    return Calculations.Subtraction(a, b);
+
+                case "*":
+                    return Calculations.Multiplication(a, b);
+
+                case "/":
+                    return Calculations.Division(a, b);
+
+                case "^":
+                    return Calculations.Exponentiation(a, b);
+
+                case "%":
+                    return a % b;
+
+                default:
+                    throw new FormatException(string.Format("Неверная входная строка '{0}'", match.Value));
+            }
+        }
+    }
+}
