@@ -134,8 +134,15 @@ namespace WelcomeScreen
             string Dol_Rub = DolToRub.Text;
             decimal rubbles;
             decimal dollars;
-            if (!(Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars))
+            if (((Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars)) ||
+                    ((Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && !(Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars))))
             {
+                //DolToRub.Text = Func(Decimal.Parse(Rub_Dol));
+
+            }
+            else if (!(Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && (Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars)))
+            {
+                //RubToDol.Text = Func(Decimal.Parse(Dol_Rub));
 
             }
             else
@@ -196,6 +203,9 @@ namespace WelcomeScreen
 
         }
 
+        private void OtherMeasClick(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
