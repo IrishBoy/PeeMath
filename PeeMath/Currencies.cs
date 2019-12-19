@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PeeMath
 {
-    class Currencies
+    public class Currencies
     {
         double usdValue;
         double euroValue;

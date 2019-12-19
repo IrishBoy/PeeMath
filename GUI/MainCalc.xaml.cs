@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using PeeMath;
 
 namespace WelcomeScreen
 {
@@ -30,6 +22,8 @@ namespace WelcomeScreen
         private CultureInfo cur_culture = CultureInfo.CreateSpecificCulture("fr-FR");
 
         private string formatError = "Wrong format";
+
+        Currencies currs = new Currencies();
 
         public void PlusClick(object sender, RoutedEventArgs e)
         {
@@ -137,7 +131,7 @@ namespace WelcomeScreen
             if (((Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars)) ||
                     ((Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && !(Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars))))
             {
-                //DolToRub.Text = Func(Decimal.Parse(Rub_Dol));
+                DolToRub.Text = FromRubToDol(Decimal.Parse(Rub_Dol));
 
             }
             else if (!(Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && (Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars)))
