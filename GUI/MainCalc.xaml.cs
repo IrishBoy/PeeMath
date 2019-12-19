@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,14 @@ namespace WelcomeScreen
         {
             InitializeComponent();
         }
+
+        private NumberStyles styles = NumberStyles.Currency |
+                    NumberStyles.Number|NumberStyles.AllowThousands |
+                    NumberStyles.AllowTrailingSign | NumberStyles.AllowCurrencySymbol;
+
+        private CultureInfo cur_culture = CultureInfo.CreateSpecificCulture("fr-FR");
+
+        private string formatError = "Wrong format";
 
         public void PlusClick(object sender, RoutedEventArgs e)
         {
@@ -102,7 +111,7 @@ namespace WelcomeScreen
             EnterField.Text += "\u221A";
         }
 
-        public void DegreeClicl(object sender, RoutedEventArgs e)
+        public void DegreeClick(object sender, RoutedEventArgs e)
         {
             EnterField.Text += "\u00B0";
         }
@@ -111,11 +120,82 @@ namespace WelcomeScreen
         {
             EnterField.Text += "(rad)";
         }
-
         public void EqualClick(object sender, RoutedEventArgs e)
         {
             EnterField.Clear();
         }
+
+
+
+
+        public void RubDolClick(object sender, RoutedEventArgs e)
+        {
+            string Rub_Dol = RubToDol.Text;
+            string Dol_Rub = DolToRub.Text;
+            decimal rubbles;
+            decimal dollars;
+            if (!(Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars))
+            {
+
+            }
+            else
+            {
+                RubToDol.Clear();
+                RubToDol.Text = formatError;
+            }
+        }
+
+        public void RubEurClick(object sender, RoutedEventArgs e)
+        {
+            string Rub_Dol = RubToDol.Text;
+            decimal number;
+            if (!Decimal.TryParse(Rub_Dol, styles, cur_culture, out number))
+            {
+
+            }
+            else
+            {
+                RubToDol.Clear();
+                RubToDol.Text = formatError;
+            }
+        }
+
+        public void DolEurClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+        public void SecMinClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+        public void SecHoursClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void SecDaysClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void MinHoursClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void MinDaysClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void HoursDaysClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
     }
 }

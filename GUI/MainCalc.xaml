@@ -6,6 +6,33 @@
         xmlns:local="clr-namespace:WelcomeScreen"
         mc:Ignorable="d"
         Title="PeeMath" Height="700" Width="800">
+    <Window.Resources>
+        <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border Background="LightGray" BorderBrush="#FF7D8683" BorderThickness="0"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                               Visibility="Collapsed" Foreground="Gray" FontFamily="Arial"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="DimGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <TabControl TabStripPlacement="Right">
         <TabControl.Resources>
             <Style TargetType="{x:Type TabItem}">
@@ -216,9 +243,13 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition>
                     </ColumnDefinition>
+                    <ColumnDefinition Width="95">
+                    </ColumnDefinition>
                     <ColumnDefinition>
                     </ColumnDefinition>
                     <ColumnDefinition>
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="95">
                     </ColumnDefinition>
                     <ColumnDefinition>
                     </ColumnDefinition>
@@ -230,8 +261,6 @@
                     </RowDefinition>
                     <RowDefinition>
                     </RowDefinition>
-                    <RowDefinition Height="80">
-                    </RowDefinition>
                     <RowDefinition>
                     </RowDefinition>
                     <RowDefinition>
@@ -241,26 +270,221 @@
                     <RowDefinition>
                     </RowDefinition>
                 </Grid.RowDefinitions>
-                <Rectangle Grid.Row="0" Grid.ColumnSpan="2" Fill="LightGray" />
-                <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
+                <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="LightGray" />
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="3"
+                           FontSize="60"
+                           HorizontalAlignment="Center" VerticalAlignment="Center">
+                    Currency
+                </TextBlock>
+
+                <Rectangle Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="4" Fill="LightGray" />
+                <TextBlock Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3"
                            FontSize="60"
                            HorizontalAlignment="Center" VerticalAlignment="Center">
                     Time
                 </TextBlock>
+                
+                
+                <TextBox Name="RubToDol"
+                         Grid.Row="1" Grid.Column="0"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Rubble"/>
+                
+                <TextBox Name="DolToRub"
+                         Grid.Row="1" Grid.Column="2"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Dollar"/>
 
-                <Rectangle Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Fill="LightGray" />
-                <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"
-                           FontSize="60"
-                           HorizontalAlignment="Center" VerticalAlignment="Center">
-                    Weight
-                </TextBlock>
+                <Button Name="RubDol" Click="RubDolClick"
+                        Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
+                        Background="White" BorderThickness="0">
+                    Convert
+                </Button>
+                
+                <TextBox Name="RubToEuro"
+                         Grid.Row="2" Grid.Column="0"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Rubble"/>
 
-                <Rectangle Grid.Row="4" Grid.ColumnSpan="2" Fill="LightGray" />
-                <TextBlock Grid.Row="4" Grid.ColumnSpan="2"
-                           FontSize="60"
-                           HorizontalAlignment="Center" VerticalAlignment="Center">
-                    Length
-                </TextBlock>
+                <TextBox Name="EurToRub"
+                         Grid.Row="2" Grid.Column="2"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Euro"/>
+
+                <Button Name="RubEur" Click="RubEurClick"
+                        Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"
+                        Background="White" BorderThickness="0">
+                    Convert
+                </Button>
+
+                <TextBox Name="DolToEur"
+                         Grid.Row="3" Grid.Column="0"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Dollar"/>
+
+
+                <TextBox Name="EurToDol"
+                         Grid.Row="3" Grid.Column="2"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Euro"/>
+
+                <Button Name="DolEur" Click="DolEurClick"
+                        Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"
+                        Background="White" BorderThickness="0">
+                    Convert
+                </Button>
+
+                <TextBox Name="SecToMin"
+                         Grid.Row="1" Grid.Column="3"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Seconds"/>
+                
+                <TextBox Name="MinToSec"
+                         Grid.Row="1" Grid.Column="5"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Minutes"/>
+
+                <Button Name="SecMin" Click="SecMinClick"
+                        Grid.Row="1" Grid.Column="4" VerticalAlignment="Center"
+                        Background="White" BorderThickness="0">
+                    Convert
+                </Button>
+
+                <TextBox Name="SecToHours"
+                         Grid.Row="2" Grid.Column="3"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Seconds"/>
+
+
+                <TextBox Name="HoursToSec"
+                         Grid.Row="2" Grid.Column="5"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Hours"/>
+
+                <Button Name="SecHours" Click="SecHoursClick"
+                        Grid.Row="2" Grid.Column="4" VerticalAlignment="Center"
+                        Background="White" BorderThickness="0">
+                    Convert
+                </Button>
+
+                <TextBox Name="SecToDays"
+                         Grid.Row="3" Grid.Column="3"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Seconds"/>
+
+                <TextBox Name="DaysToSec"
+                         Grid.Row="3" Grid.Column="5"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Days"/>
+
+                <Button Name="SecDays" Click="SecDaysClick"
+                        Grid.Row="3" Grid.Column="4" VerticalAlignment="Center"
+                        Background="White" BorderThickness="0">
+                    Convert
+                </Button>
+                
+                <TextBox Name="MinToHours"
+                         Grid.Row="4" Grid.Column="3"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Minutes"/>
+
+                <TextBox Name="HoursToMin"
+                         Grid.Row="4" Grid.Column="5"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Hours"/>
+
+                <Button Name="MinHours" Click="MinHoursClick"
+                        Grid.Row="4" Grid.Column="4" VerticalAlignment="Center"
+                        Background="White" BorderThickness="0">
+                    Convert
+                </Button>
+                
+                <TextBox Name="MinToDays"
+                         Grid.Row="5" Grid.Column="3"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Minutes"/>
+
+                <TextBox Name="DaysToMin"
+                         Grid.Row="5" Grid.Column="5"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Days"/>
+
+                <Button Name="MinDays" Click="MinDaysClick"
+                        Grid.Row="5" Grid.Column="4" VerticalAlignment="Center"
+                        Background="White" BorderThickness="0">
+                    Convert
+                </Button>
+                
+                
+                <TextBox Name="HoursToDays"
+                         Grid.Row="6" Grid.Column="3"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Hours"/>
+
+                <TextBox Name="DaysToHours"
+                         Grid.Row="6" Grid.Column="5"
+                         Background="Gray"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                         BorderThickness="10"
+                         BorderBrush="DarkGray"
+                         Style="{StaticResource MyWaterMarkStyle}" Tag="Days"/>
+
+                <Button Name="HoursDays" Click="HoursDaysClick"
+                        Grid.Row="6" Grid.Column="4" VerticalAlignment="Center"
+                        Background="White" BorderThickness="0">
+                    Convert
+                </Button>
             </Grid>
         </TabItem>
         <TabItem Header="Limits" FontSize="20">
