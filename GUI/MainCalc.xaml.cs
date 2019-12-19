@@ -128,10 +128,8 @@ namespace WelcomeScreen
             string Dol_Rub = DolToRub.Text;
             double rubbles;
             double dollars;
-            if (((Double.TryParse(Rub_Dol, out rubbles)) && Double.TryParse(Dol_Rub, out dollars)) ||
-                    ((Double.TryParse(Rub_Dol, out rubbles)) && !(Double.TryParse(Dol_Rub, out dollars))))
+            if (((Double.TryParse(Rub_Dol, out rubbles))))
             {
-                
                 double cur_dollars = currs.FromRubToDol(double.Parse(Rub_Dol, styles, cur_culture));
                 DolToRub.Text = cur_dollars.ToString("F6");
 
