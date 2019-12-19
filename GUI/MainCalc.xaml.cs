@@ -126,23 +126,28 @@ namespace WelcomeScreen
         {
             string Rub_Dol = RubToDol.Text;
             string Dol_Rub = DolToRub.Text;
-            decimal rubbles;
-            decimal dollars;
-            if (((Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars)) ||
-                    ((Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && !(Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars))))
+            double rubbles;
+            double dollars;
+            if (((Double.TryParse(Rub_Dol, out rubbles)) && Double.TryParse(Dol_Rub, out dollars)) ||
+                    ((Double.TryParse(Rub_Dol, out rubbles)) && !(Double.TryParse(Dol_Rub, out dollars))))
             {
-                DolToRub.Text = FromRubToDol(Decimal.Parse(Rub_Dol));
+                
+                double cur_dollars = currs.FromRubToDol(double.Parse(Rub_Dol, styles, cur_culture));
+                DolToRub.Text = cur_dollars.ToString("F6");
 
             }
-            else if (!(Decimal.TryParse(Rub_Dol, styles, cur_culture, out rubbles)) && (Decimal.TryParse(Dol_Rub, styles, cur_culture, out dollars)))
+            else if (!(Double.TryParse(Rub_Dol, out rubbles)) && (Double.TryParse(Dol_Rub, out dollars)))
             {
-                //RubToDol.Text = Func(Decimal.Parse(Dol_Rub));
+                double cur_rubbles = currs.FromDolToRub(double.Parse(Dol_Rub, styles, cur_culture));
+                RubToDol.Text = cur_rubbles.ToString("F6");
 
             }
             else
             {
                 RubToDol.Clear();
                 RubToDol.Text = formatError;
+                DolToRub.Clear();
+                DolToRub.Text = formatError;
             }
         }
 
