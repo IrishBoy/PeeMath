@@ -151,21 +151,49 @@ namespace WelcomeScreen
 
         public void RubEurClick(object sender, RoutedEventArgs e)
         {
-            string Rub_Dol = RubToDol.Text;
-            decimal number;
-            if (!Decimal.TryParse(Rub_Dol, styles, cur_culture, out number))
+            string Rub_Eur = RubToEuro.Text;
+            string Eur_Rub = EurToRub.Text;
+            double rubbles;
+            double euros;
+            
+            if (Double.TryParse(Rub_Eur, out rubbles))
             {
-
+                double cur_euros = currs.FromRubToEuro(double.Parse(Rub_Eur, styles, cur_culture));
+                EurToRub.Text = cur_euros.ToString("F6");
+            }
+            else if (!(Double.TryParse(Rub_Eur, out rubbles)) && (Double.TryParse(Eur_Rub, out euros)))
+            {
+                double cur_rubbles = currs.FromEuroToRub(double.Parse(Eur_Rub, styles, cur_culture));
+                RubToEuro.Text = cur_rubbles.ToString("F6");
             }
             else
             {
-                RubToDol.Clear();
-                RubToDol.Text = formatError;
+                RubToEuro.Clear();
+                RubToEuro.Text = formatError;
             }
         }
 
         public void DolEurClick(object sender, RoutedEventArgs e)
         {
+            string Dol_Eur = DolToEur.Text;
+            string Eur_Dol = EurToDol.Text;
+            double dollars;
+            double euros;
+            if (Double.TryParse(Dol_Eur, out euros))
+            {
+                double cur_euros = currs.FromDolToEur(double.Parse(Dol_Eur, styles, cur_culture));
+                EurToRub.Text = cur_euros.ToString("F6");
+            }
+            else if (!(Double.TryParse(Dol_Eur, out euros)) && (Double.TryParse(Eur_Dol, out dollars)))
+            {
+                double cur_rubbles = currs.FromEuroToDol(double.Parse(Eur_Dol, styles, cur_culture));
+                RubToEuro.Text = cur_rubbles.ToString("F6");
+            }
+            else
+            {
+                DolToEur.Clear();
+                DolToEur.Text = formatError;
+            }
 
         }
 
