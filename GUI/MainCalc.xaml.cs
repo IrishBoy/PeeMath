@@ -85,7 +85,7 @@ namespace WelcomeScreen
 
         public void FactorialClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "!");            
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "(x)!");            
         }
 
         public void PercentClick(object sender, RoutedEventArgs e)
@@ -103,10 +103,10 @@ namespace WelcomeScreen
         {
             EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "\u221A");
         }
-
+        
         public void DegreeClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "\u00B0");
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "(x)\u00B0");
         }
 
         public void RadianClick(object sender, RoutedEventArgs e)
