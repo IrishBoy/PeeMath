@@ -119,7 +119,7 @@ namespace WelcomeScreen
             int cur_int = (int)answer;
             if(cur_int == answer)
             {
-                EnterField.Text = answer.ToString("F0");
+                EnterField.Text = answer.ToString();
             }
             else
             {
@@ -143,7 +143,7 @@ namespace WelcomeScreen
                 int cur_int = (int)cur_dollars;
                 if(cur_int == cur_dollars)
                 {
-                    DolToRub.Text = cur_dollars.ToString("F0");
+                    DolToRub.Text = cur_dollars.ToString();
                 }
                 else
                 {
@@ -158,7 +158,7 @@ namespace WelcomeScreen
                 int cur_int = (int)cur_rubbles;
                 if(cur_int == cur_rubbles)
                 {
-                    RubToDol.Text = cur_rubbles.ToString("F0");
+                    RubToDol.Text = cur_rubbles.ToString();
                 }
                 else
                 {
@@ -189,7 +189,7 @@ namespace WelcomeScreen
                 int cur_int = (int)cur_euros;
                 if(cur_int == cur_euros)
                 {
-                    EurToRub.Text = cur_euros.ToString("F0");
+                    EurToRub.Text = cur_euros.ToString();
                 }
                 else
                 {
@@ -203,7 +203,7 @@ namespace WelcomeScreen
                 int cur_int = (int)cur_rubbles;
                 if(cur_int == cur_rubbles)
                 {
-                    RubToEuro.Text = cur_rubbles.ToString("F0");
+                    RubToEuro.Text = cur_rubbles.ToString();
                 }
                 else
                 {
@@ -230,7 +230,7 @@ namespace WelcomeScreen
                 int cur_int = (int)cur_euros;
                 if(cur_int == cur_euros)
                 {
-                    EurToRub.Text = cur_euros.ToString("F0");
+                    EurToRub.Text = cur_euros.ToString();
                 }
                 else
                 {
@@ -244,7 +244,7 @@ namespace WelcomeScreen
                 int cur_int = (int)cur_rubbles;
                 if(cur_int == cur_rubbles)
                 {
-                    RubToEuro.Text = cur_rubbles.ToString("F0");
+                    RubToEuro.Text = cur_rubbles.ToString();
                 }
                 else
                 {
