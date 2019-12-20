@@ -16,7 +16,7 @@ namespace WelcomeScreen
                     NumberStyles.Number|NumberStyles.AllowThousands |
                     NumberStyles.AllowTrailingSign | NumberStyles.AllowCurrencySymbol;
 
-        private CultureInfo cur_culture = CultureInfo.CreateSpecificCulture("fr-FR");
+        private CultureInfo cur_culture = CultureInfo.InvariantCulture;
 
         private string formatError = "Wrong format";
 

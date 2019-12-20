@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static PeeMath.ValuteRate;
 
 namespace PeeMath
 {
+
     public class Currencies
     {
-        double usdValue;
-        double euroValue;
+        
 
         public double FromDaysToHours(double a)
         {
@@ -100,31 +101,45 @@ namespace PeeMath
 
         public double FromRubToDol(double a)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            double usdValue = tmp.Find(cr => cr.CurrencyStringCode == "USD").ExchangeRate;
             return a / usdValue;
         }
 
         public double FromRubToEuro(double a)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            double euroValue = tmp.Find(cr => cr.CurrencyStringCode == "EUR").ExchangeRate;
             return a / euroValue;
         }
 
         public double FromEuroToRub(double a)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            double euroValue = tmp.Find(cr => cr.CurrencyStringCode == "EUR").ExchangeRate;
             return a * euroValue;
         }
 
         public double FromDolToRub(double a)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            double usdValue = tmp.Find(cr => cr.CurrencyStringCode == "USD").ExchangeRate;
             return a * usdValue;
         }
 
         public double FromEuroToDol(double a)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            double usdValue = tmp.Find(cr => cr.CurrencyStringCode == "USD").ExchangeRate;
+            double euroValue = tmp.Find(cr => cr.CurrencyStringCode == "EUR").ExchangeRate;
             return a * euroValue / usdValue;
         }
 
         public double FromDolToEuro(double a)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            double usdValue = tmp.Find(cr => cr.CurrencyStringCode == "USD").ExchangeRate;
+            double euroValue = tmp.Find(cr => cr.CurrencyStringCode == "EUR").ExchangeRate;
             return a * usdValue / euroValue;
         }
     }
