@@ -118,7 +118,7 @@ namespace PeeMath
             return a * usdValue;
         }
 
-        public double FromEuroTODol(double a)
+        public double FromEuroToDol(double a)
         {
             return a * euroValue / usdValue;
         }

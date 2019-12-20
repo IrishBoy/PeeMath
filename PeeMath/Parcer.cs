@@ -23,7 +23,7 @@ namespace PeeMath
 
         public double Parsing(string str)
         {
-            string[] func = {"sin", "cos", "ctg", "tg", "arcsin", "arccos", "arcctg", "arctg", "\u221A", };
+            string[] func = {"sin", "cos", "ctg", "tg", "arcsin", "arccos", "arcctg", "arctg", "\u221A", "ln", "log" };
             for (int i = 0; i < func.Length; i++)
             {
                 Match matchFunc = Regex.Match(str, string.Format(@"{0}\(({1})\)", func[i], @"[1234567890\.\+\-\*\/^%]*"));
@@ -62,6 +62,12 @@ namespace PeeMath
                         case 8:
                             return Parsing(left + Calculations.SquareRoot(Convert.ToDouble(middle)) + right);
 
+                        case 9:
+                            return Parsing(left + Calculations.Ln(Convert.ToDouble(middle)) + right);
+
+                        case 10:
+                            string[] numbers = middle.Split(",");
+                            return Parsing(left + Calculations.Log(Convert.ToDouble(numbers[0]), Convert.ToDouble(numbers[1])));
 
                     }
                 }
