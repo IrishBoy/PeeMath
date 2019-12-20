@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
+using GUI;
 using PeeMath;
 
 namespace WelcomeScreen
@@ -22,95 +23,97 @@ namespace WelcomeScreen
 
         Currencies currs = new Currencies();
         Parser parse = new Parser();
+        Blocked block = new Blocked();
 
         public void PlusClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "+";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "+");
         }
 
         public void MinusClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "-";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "-");
         }
 
         public void MultiplyClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "*";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "*");
         }
 
         public void DivideClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "/";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "/");
         }
 
         public void LNClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "ln()";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "ln()");            
         }
 
         public void LogClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "log(base, number)";
+            block.Show();
         }
 
         public void SquareClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "^(2)";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "^(2)");
         }
 
         public void PowerClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "^(y)";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "^(y)");
+
         }
         public void SinClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "sin(x)";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "sin(x)");
         }
 
         public void CosClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "cos(x)";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "cos(x)");
         }
 
         public void TgClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "tg(x)";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "tg(x)");
         }
 
         public void CtgClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "ctg(x)";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "ctg(x)");
         }
 
         public void FactorialClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "!";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "(x)!");            
         }
 
-        public void PercentClick(object sender, RoutedEventArgs e)
+        public void ClearClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "%";
+            EnterField.Clear();
         }
 
         public void PeeClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "\u03C0";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "\u03C0");
         }
 
 
         public void SquareRootClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "\u221A";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "\u221A");
         }
-
+        
         public void DegreeClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "\u00B0";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "(x)\u00B0");
         }
 
         public void RadianClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "rad(x)";
+            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "rad(x)");
         }
         public void EqualClick(object sender, RoutedEventArgs e)
         {

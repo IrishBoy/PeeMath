@@ -195,12 +195,12 @@
                     x!
                 </Button>
 
-                <Button Name="Percent" Click="PercentClick"
+                <Button Name="Clear" Click="ClearClick"
                         Grid.Row="2" Grid.Column="0"
-                        FontSize="95"
+                        FontSize="55"
                         Background="LightGray"
                         BorderThickness="0">
-                    %
+                    Clear
                 </Button>
 
                 <Button Name="Pee" Click="PeeClick"
@@ -487,10 +487,8 @@
                 </Button>
 
               <Image Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" 
-Name="OtherMeas" Source="Images/OtherMeasures.jpg"/>
+                        Name="OtherMeas" Source="Images/OtherMeasures.jpg"/>
             </Grid>
-        </TabItem>
-        <TabItem Header="Limits" FontSize="20">
         </TabItem>
     </TabControl>
 </Window>

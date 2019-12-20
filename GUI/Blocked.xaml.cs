@@ -10,26 +10,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WelcomeScreen
+namespace GUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для Blocked.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Blocked : Window
     {
-
-        MainCalc CalcWind = new MainCalc();
-        public MainWindow()
+        public Blocked()
         {
             InitializeComponent();
         }
-
-
-        private void EnterAppClick(object sender, RoutedEventArgs e)
-        {
-            CalcWind.Show();
-            this.Close();
-        }
-
     }
 }

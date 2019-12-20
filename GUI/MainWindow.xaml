@@ -32,11 +32,14 @@
                 FontSize="45">
             Enter
         </Button>
-        
-        <Button Name="FAQ" Click="FAQButtonClick"
-                Grid.Row="2" Grid.ColumnSpan="2" Margin="350 60 350 60"
-                FontSize="15">
-            F.A.Q
-        </Button>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   FontFamily="Century Gothic">
+            Made by 
+            <LineBreak/>
+            $$$pOCANSKYaVtomat$$$
+        </TextBlock>
     </Grid>
 </Window>
