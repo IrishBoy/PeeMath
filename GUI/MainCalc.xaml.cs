@@ -181,13 +181,13 @@ namespace WelcomeScreen
             double euros;
             if (Double.TryParse(Dol_Eur, out euros))
             {
-                //double cur_euros = currs.FromDolToEur(double.Parse(Dol_Eur, styles, cur_culture));
-                //EurToRub.Text = cur_euros.ToString("F6");
+                double cur_euros = currs.FromDolToEuro(double.Parse(Dol_Eur, styles, cur_culture));
+                EurToRub.Text = cur_euros.ToString("F6");
             }
             else if (!(Double.TryParse(Dol_Eur, out euros)) && (Double.TryParse(Eur_Dol, out dollars)))
             {
-                //double cur_rubbles = currs.FromEuroToDol(double.Parse(Eur_Dol, styles, cur_culture));
-                //RubToEuro.Text = cur_rubbles.ToString("F6");
+                double cur_rubbles = currs.FromEuroTODol(double.Parse(Eur_Dol, styles, cur_culture));
+                RubToEuro.Text = cur_rubbles.ToString("F6");
             }
             else
             {
