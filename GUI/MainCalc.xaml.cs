@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
+using GUI;
 using PeeMath;
 
 namespace WelcomeScreen
@@ -22,6 +23,7 @@ namespace WelcomeScreen
 
         Currencies currs = new Currencies();
         Parser parse = new Parser();
+        Blocked block = new Blocked();
 
         public void PlusClick(object sender, RoutedEventArgs e)
         {
@@ -50,7 +52,7 @@ namespace WelcomeScreen
 
         public void LogClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "log(base, number)");
+            block.Show();
         }
 
         public void SquareClick(object sender, RoutedEventArgs e)
@@ -88,9 +90,9 @@ namespace WelcomeScreen
             EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "(x)!");            
         }
 
-        public void PercentClick(object sender, RoutedEventArgs e)
+        public void ClearClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "%");
+            EnterField.Clear();
         }
 
         public void PeeClick(object sender, RoutedEventArgs e)

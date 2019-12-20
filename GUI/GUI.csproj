@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Images\OtherMeasures.jpg" />
+    <None Remove="Images\Unblock.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <Resource Include="Images\OtherMeasures.jpg" />
+    <Resource Include="Images\Unblock.jpg" />
   </ItemGroup>
 
 </Project>
