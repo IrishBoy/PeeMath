@@ -5,9 +5,6 @@ using PeeMath;
 
 namespace WelcomeScreen
 {
-    /// <summary>
-    /// Логика взаимодействия для MainCalc.xaml
-    /// </summary>
     public partial class MainCalc : Window
     {
         public MainCalc()
@@ -24,6 +21,7 @@ namespace WelcomeScreen
         private string formatError = "Wrong format";
 
         Currencies currs = new Currencies();
+        Parser parse = new Parser();
 
         public void PlusClick(object sender, RoutedEventArgs e)
         {
@@ -116,7 +114,9 @@ namespace WelcomeScreen
         }
         public void EqualClick(object sender, RoutedEventArgs e)
         {
+            double answer = parse.Parsing(Convert.ToString(EnterField.Text));
             EnterField.Clear();
+            EnterField.Text = answer.ToString("F6");
         }
 
 

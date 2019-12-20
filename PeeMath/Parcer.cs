@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace PeeMath
 {
-    public static class Parser
+    public class Parser
     {
-        public static bool TryParse(string str)
+        public bool TryParse(string str)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace PeeMath
             }
         }
 
-        public static double Parsing(string str)
+        public double Parsing(string str)
         {
             string[] func = { "sin", "cos", "ctg", "tg", "arcsin", "arccos", "arcctg", "arctg" };
             for (int i = 0; i < func.Length; i++)
@@ -97,7 +97,7 @@ namespace PeeMath
         }
 
 
-        private static double ParseAct(Match match)
+        private double ParseAct(Match match)
         {
             double a = double.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture);
             double b = double.Parse(match.Groups[3].Value, CultureInfo.InvariantCulture);
