@@ -283,8 +283,8 @@
                            HorizontalAlignment="Center" VerticalAlignment="Center">
                     Time
                 </TextBlock>
-                
-                
+
+
                 <TextBox Name="RubToDol"
                          Grid.Row="1" Grid.Column="0"
                          Background="Gray"
@@ -292,7 +292,7 @@
                          BorderThickness="10"
                          BorderBrush="DarkGray"
                          Style="{StaticResource MyWaterMarkStyle}" Tag="Rubble"/>
-                
+
                 <TextBox Name="DolToRub"
                          Grid.Row="1" Grid.Column="2"
                          Background="Gray"
@@ -306,7 +306,7 @@
                         Background="White" BorderThickness="0">
                     Convert
                 </Button>
-                
+
                 <TextBox Name="RubToEuro"
                          Grid.Row="2" Grid.Column="0"
                          Background="Gray"
@@ -359,7 +359,7 @@
                          BorderThickness="10"
                          BorderBrush="DarkGray"
                          Style="{StaticResource MyWaterMarkStyle}" Tag="Seconds"/>
-                
+
                 <TextBox Name="MinToSec"
                          Grid.Row="1" Grid.Column="5"
                          Background="Gray"
@@ -418,7 +418,7 @@
                         Background="White" BorderThickness="0">
                     Convert
                 </Button>
-                
+
                 <TextBox Name="MinToHours"
                          Grid.Row="4" Grid.Column="3"
                          Background="Gray"
@@ -440,7 +440,7 @@
                         Background="White" BorderThickness="0">
                     Convert
                 </Button>
-                
+
                 <TextBox Name="MinToDays"
                          Grid.Row="5" Grid.Column="3"
                          Background="Gray"
@@ -462,8 +462,8 @@
                         Background="White" BorderThickness="0">
                     Convert
                 </Button>
-                
-                
+
+
                 <TextBox Name="HoursToDays"
                          Grid.Row="6" Grid.Column="3"
                          Background="Gray"
@@ -486,11 +486,9 @@
                     Convert
                 </Button>
 
-              <Image Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" 
-Name="OtherMeas" Source="Images/OtherMeasures.jpg"/>
+                <Image Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" 
+                    Name="OtherMeas" Source="Images/OtherMeasures.jpg"/>
             </Grid>
-        </TabItem>
-        <TabItem Header="Limits" FontSize="20">
         </TabItem>
     </TabControl>
 </Window>
