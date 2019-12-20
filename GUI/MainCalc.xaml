@@ -487,10 +487,8 @@
                 </Button>
 
               <Image Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" 
-Name="OtherMeas" Source="Images/OtherMeasures.jpg"/>
+                        Name="OtherMeas" Source="Images/OtherMeasures.jpg"/>
             </Grid>
-        </TabItem>
-        <TabItem Header="Limits" FontSize="20">
         </TabItem>
     </TabControl>
 </Window>
