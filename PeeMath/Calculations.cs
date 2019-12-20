@@ -98,5 +98,10 @@ namespace PeeMath
             return Math.Pow(Math.Pow(a, 1 / b), 6);
         }
 
+        public static double Rad(double a)
+        {
+            return a * 180 / Math.PI;
+        }
+
     }
 }
