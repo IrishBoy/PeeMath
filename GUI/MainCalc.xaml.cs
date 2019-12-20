@@ -140,13 +140,31 @@ namespace WelcomeScreen
             if (((Double.TryParse(Rub_Dol, out rubbles))))
             {
                 double cur_dollars = currs.FromRubToDol(double.Parse(Rub_Dol, styles, cur_culture));
-                DolToRub.Text = cur_dollars.ToString("F6");
+                int cur_int = (int)cur_dollars;
+                if(cur_int == cur_dollars)
+                {
+                    DolToRub.Text = cur_dollars.ToString("F0");
+                }
+                else
+                {
+                    DolToRub.Text = cur_dollars.ToString("F6");
+                }
+                
 
             }
             else if (!(Double.TryParse(Rub_Dol, out rubbles)) && (Double.TryParse(Dol_Rub, out dollars)))
             {
                 double cur_rubbles = currs.FromDolToRub(double.Parse(Dol_Rub, styles, cur_culture));
-                RubToDol.Text = cur_rubbles.ToString("F6");
+                int cur_int = (int)cur_rubbles;
+                if(cur_int == cur_rubbles)
+                {
+                    RubToDol.Text = cur_rubbles.ToString("F0");
+                }
+                else
+                {
+                    RubToDol.Text = cur_rubbles.ToString("F6");
+                }
+                
 
             }
             else
@@ -168,12 +186,30 @@ namespace WelcomeScreen
             if (Double.TryParse(Rub_Eur, out rubbles))
             {
                 double cur_euros = currs.FromRubToEuro(double.Parse(Rub_Eur, styles, cur_culture));
-                EurToRub.Text = cur_euros.ToString("F6");
+                int cur_int = (int)cur_euros;
+                if(cur_int == cur_euros)
+                {
+                    EurToRub.Text = cur_euros.ToString("F0");
+                }
+                else
+                {
+                    EurToRub.Text = cur_euros.ToString("F6");
+                }
+                
             }
             else if (!(Double.TryParse(Rub_Eur, out rubbles)) && (Double.TryParse(Eur_Rub, out euros)))
             {
                 double cur_rubbles = currs.FromEuroToRub(double.Parse(Eur_Rub, styles, cur_culture));
-                RubToEuro.Text = cur_rubbles.ToString("F6");
+                int cur_int = (int)cur_rubbles;
+                if(cur_int == cur_rubbles)
+                {
+                    RubToEuro.Text = cur_rubbles.ToString("F0");
+                }
+                else
+                {
+                    RubToEuro.Text = cur_rubbles.ToString("F6");
+                }
+                
             }
             else
             {
@@ -191,12 +227,31 @@ namespace WelcomeScreen
             if (Double.TryParse(Dol_Eur, out euros))
             {
                 double cur_euros = currs.FromDolToEuro(double.Parse(Dol_Eur, styles, cur_culture));
-                EurToRub.Text = cur_euros.ToString("F6");
+                int cur_int = (int)cur_euros;
+                if(cur_int == cur_euros)
+                {
+                    EurToRub.Text = cur_euros.ToString("F0");
+                }
+                else
+                {
+                    EurToRub.Text = cur_euros.ToString("F6");
+                }
+                
             }
             else if (!(Double.TryParse(Dol_Eur, out euros)) && (Double.TryParse(Eur_Dol, out dollars)))
             {
                 double cur_rubbles = currs.FromEuroToDol(double.Parse(Eur_Dol, styles, cur_culture));
-                RubToEuro.Text = cur_rubbles.ToString("F6");
+                int cur_int = (int)cur_rubbles;
+                if(cur_int == cur_rubbles)
+                {
+                    RubToEuro.Text = cur_rubbles.ToString("F0");
+                }
+                else
+                {
+                    RubToEuro.Text = cur_rubbles.ToString("F6");
+                }
+                
+
             }
             else
             {
