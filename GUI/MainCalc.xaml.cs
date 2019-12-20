@@ -116,7 +116,16 @@ namespace WelcomeScreen
         {
             double answer = parse.Parsing(Convert.ToString(EnterField.Text));
             EnterField.Clear();
-            EnterField.Text = answer.ToString("F6");
+            int cur_int = (int)answer;
+            if(cur_int == answer)
+            {
+                EnterField.Text = answer.ToString("F0");
+            }
+            else
+            {
+                EnterField.Text = answer.ToString("F6");
+            }
+            
         }
 
 
@@ -186,7 +195,7 @@ namespace WelcomeScreen
             }
             else if (!(Double.TryParse(Dol_Eur, out euros)) && (Double.TryParse(Eur_Dol, out dollars)))
             {
-                double cur_rubbles = currs.FromEuroTODol(double.Parse(Eur_Dol, styles, cur_culture));
+                double cur_rubbles = currs.FromEuroToDol(double.Parse(Eur_Dol, styles, cur_culture));
                 RubToEuro.Text = cur_rubbles.ToString("F6");
             }
             else
