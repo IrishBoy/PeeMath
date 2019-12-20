@@ -67,7 +67,7 @@ namespace PeeMath
 
                         case 10:
                             string[] numbers = middle.Split(",");
-                            return Parsing(left + Calculations.Log(Convert.ToDouble(numbers[0]), Convert.ToDouble(numbers[1]));
+                            return Parsing(left + Calculations.Log(Convert.ToDouble(numbers[0]), Convert.ToDouble(numbers[1])));
 
                     }
                 }
