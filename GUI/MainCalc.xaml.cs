@@ -181,13 +181,13 @@ namespace WelcomeScreen
             double euros;
             if (Double.TryParse(Dol_Eur, out euros))
             {
-                double cur_euros = currs.FromDolToEur(double.Parse(Dol_Eur, styles, cur_culture));
-                EurToRub.Text = cur_euros.ToString("F6");
+                //double cur_euros = currs.FromDolToEur(double.Parse(Dol_Eur, styles, cur_culture));
+                //EurToRub.Text = cur_euros.ToString("F6");
             }
             else if (!(Double.TryParse(Dol_Eur, out euros)) && (Double.TryParse(Eur_Dol, out dollars)))
             {
-                double cur_rubbles = currs.FromEuroToDol(double.Parse(Eur_Dol, styles, cur_culture));
-                RubToEuro.Text = cur_rubbles.ToString("F6");
+                //double cur_rubbles = currs.FromEuroToDol(double.Parse(Eur_Dol, styles, cur_culture));
+                //RubToEuro.Text = cur_rubbles.ToString("F6");
             }
             else
             {
@@ -205,15 +205,32 @@ namespace WelcomeScreen
             string Min_Sec = SecToMin.Text;
             double secs;
             double mins;
-            if (Double.TryParse(Sec_Min, out secs))
+            if (Double.TryParse(Sec_Min, out mins))
             {
                 double cur_mins = currs.FromSecondsToMinutes(double.Parse(Sec_Min, styles, cur_culture));
-                MinToSec.Text = cur_mins.ToString("F6");
+                int cur_int = (int)cur_mins;
+                if(cur_mins == cur_int)
+                {
+                    MinToSec.Text = cur_mins.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_mins.ToString("F6");
+                }
+                
             }
-            else if (!(Double.TryParse(Sec_Min, out secs)) && (Double.TryParse(Min_Sec, out secs)))
+            else if (!(Double.TryParse(Sec_Min, out mins)) && (Double.TryParse(Min_Sec, out secs)))
             {
                 double cur_secs = currs.FromMinutesToSeconds(double.Parse(Min_Sec, styles, cur_culture));
-                MinToSec.Text = cur_secs.ToString("F6");
+                int cur_int = (int)cur_secs;
+                if (cur_secs == cur_int)
+                {
+                    MinToSec.Text = cur_secs.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_secs.ToString("F6");
+                }
             }
             else
             {
@@ -230,12 +247,28 @@ namespace WelcomeScreen
             if (Double.TryParse(Sec_Hour, out hours))
             {
                 double cur_hours = currs.FromSecondsToHours(double.Parse(Sec_Hour, styles, cur_culture));
-                HoursToSec.Text = cur_hours.ToString("F6");
+                int cur_int = (int)cur_hours;
+                if (cur_hours == cur_int)
+                {
+                    MinToSec.Text = cur_hours.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_hours.ToString("F6");
+                }
             }
             else if (!(Double.TryParse(Sec_Hour, out hours)) && (Double.TryParse(Hour_Sec, out secs)))
             {
                 double cur_secs = currs.FromHoursToSeconds(double.Parse(Hour_Sec, styles, cur_culture));
-                HoursToSec.Text = cur_secs.ToString("F6");
+                int cur_int = (int)cur_secs;
+                if (cur_secs == cur_int)
+                {
+                    MinToSec.Text = cur_int.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_secs.ToString("F6");
+                }
             }
             else
             {
@@ -253,12 +286,28 @@ namespace WelcomeScreen
             if (Double.TryParse(Sec_Day, out days))
             {
                 double cur_days = currs.FromSecondsToDays(double.Parse(Sec_Day, styles, cur_culture));
-                DaysToSec.Text = cur_days.ToString("F6");
+                int cur_int = (int)cur_days;
+                if (cur_days == cur_int)
+                {
+                    MinToSec.Text = cur_int.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_days.ToString("F6");
+                }
             }
             else if (!(Double.TryParse(Sec_Day, out days)) && (Double.TryParse(Day_Sec, out secs)))
             {
                 double cur_secs = currs.FromDaysToSeconds(double.Parse(Day_Sec, styles, cur_culture));
-                SecToDays.Text = cur_secs.ToString("F6");
+                int cur_int = (int)cur_secs;
+                if (cur_secs == cur_int)
+                {
+                    MinToSec.Text = cur_int.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_secs.ToString("F6");
+                }
             }
             else
             {
@@ -276,12 +325,28 @@ namespace WelcomeScreen
             if (Double.TryParse(Min_Hour, out hours))
             {
                 double cur_hours = currs.FromMinutesToHours(double.Parse(Min_Hour, styles, cur_culture));
-                HoursToMin.Text = cur_hours.ToString("F6");
+                int cur_int = (int)cur_hours;
+                if (cur_hours == cur_int)
+                {
+                    MinToSec.Text = cur_int.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_hours.ToString("F6");
+                }
             }
             else if (!(Double.TryParse(Min_Hour, out hours)) && (Double.TryParse(Hour_Min, out mins)))
             {
                 double cur_mins = currs.FromHoursToMinutes(double.Parse(Hour_Min, styles, cur_culture));
-                MinToHours.Text = cur_mins.ToString("F6");
+                int cur_int = (int)cur_mins;
+                if (cur_mins == cur_int)
+                {
+                    MinToSec.Text = cur_int.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_mins.ToString("F6");
+                }
             }
             else
             {
@@ -299,12 +364,28 @@ namespace WelcomeScreen
             if (Double.TryParse(Min_Day, out days))
             {
                 double cur_days = currs.FromMinutesToDays(double.Parse(Min_Day, styles, cur_culture));
-                DaysToMin.Text = cur_days.ToString("F6");
+                int cur_int = (int)cur_days;
+                if (cur_days == cur_int)
+                {
+                    MinToSec.Text = cur_int.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_days.ToString("F6");
+                }
             }
             else if (!(Double.TryParse(Min_Day, out days)) && (Double.TryParse(Day_Min, out mins)))
             {
                 double cur_mins = currs.FromDaysToMinutes(double.Parse(Day_Min, styles, cur_culture));
-                MinToDays.Text = cur_mins.ToString("F6");
+                int cur_int = (int)cur_mins;
+                if (cur_mins == cur_int)
+                {
+                    MinToSec.Text = cur_int.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_mins.ToString("F6");
+                }
             }
             else
             {
@@ -322,12 +403,28 @@ namespace WelcomeScreen
             if (Double.TryParse(Hour_Day, out days))
             {
                 double cur_days = currs.FromHoursToDays(double.Parse(Hour_Day, styles, cur_culture));
-                DaysToHours.Text = cur_days.ToString("F6");
+                int cur_int = (int)cur_days;
+                if (cur_days == cur_int)
+                {
+                    MinToSec.Text = cur_int.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_days.ToString("F6");
+                }
             }
             else if (!(Double.TryParse(Hour_Day, out days)) && (Double.TryParse(Day_Hour, out hours)))
             {
                 double cur_hours = currs.FromDaysToHours(double.Parse(Day_Hour, styles, cur_culture));
-                HoursToDays.Text = cur_hours.ToString("F6");
+                int cur_int = (int)cur_hours;
+                if (cur_hours == cur_int)
+                {
+                    MinToSec.Text = cur_int.ToString();
+                }
+                else
+                {
+                    MinToSec.Text = cur_hours.ToString("F6");
+                }
             }
             else
             {
