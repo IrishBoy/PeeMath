@@ -40,62 +40,62 @@ namespace PeeMath
 
         public static double Ln(double a)
         {
-            return Math.Log(a);
+            return Math.Round(Math.Log(a), 6);
         }
 
         public static double Log(double a, double b)
         {
-            return Math.Log(a, b);
+            return Math.Round(Math.Log(a, b), 6);
         }
 
         public static double Sin(double a)
         {
-            return Math.Sin(a * Math.PI / 180);
+            return Math.Round(Math.Sin(a * Math.PI / 180), 6);
         }
 
         public static double Cos(double a)
         {
-            return Math.Cos(a * Math.PI / 180);
+            return Math.Round(Math.Cos(a * Math.PI / 180), 6);
         }
 
         public static double Tg(double a)
         {
-            return Math.Tan(a * Math.PI / 180);
+            return Math.Round(Math.Tan(a * Math.PI / 180), 6);
         }
 
         public static double Ctg(double a)
         {
-            return 1.0 / Math.Tan(a * Math.PI / 180);
+            return Math.Round(1.0 / Math.Tan(a * Math.PI / 180), 6);
         }
 
         public static double Arcsin(double a)
         {
-            return Math.Asin(a);
+            return Math.Round(Math.Asin(a), 6);
         }
 
         public static double Arccos(double a)
         {
-            return Math.Acos(a);
+            return Math.Round(Math.Acos(a), 6);
         }
 
         public static double Arctg(double a)
         {
-            return Math.Atan(a);
+            return Math.Round(Math.Atan(a), 6);
         }
 
         public static double Arcctg(double a)
         {
-            return Math.PI / 2 - Math.Atan(a);
+            return Math.Round(Math.PI / 2 - Math.Atan(a), 6);
         }
 
         public static double SquareRoot(double a)
         {
-            return Math.Sqrt(a);
+            return Math.Round(Math.Sqrt(a), 6);
         }
 
         public static double Root(double a, int b)
         {
-            return Math.Pow(a, 1 / b);
+            return Math.Pow(Math.Pow(a, 1 / b), 6);
         }
 
     }

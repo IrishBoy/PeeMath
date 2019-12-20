@@ -129,9 +129,6 @@ namespace PeeMath
                 case "^":
                     return Calculations.Exponentiation(a, b);
 
-                case "%":
-                    return a % b;
-
                 default:
                     throw new FormatException(string.Format("Wrong format '{0}'", match.Value));
             }
