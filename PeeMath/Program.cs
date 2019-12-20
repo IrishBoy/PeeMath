@@ -1,60 +1,85 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace PeeMath
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public class CurrencyRate
         {
-            XmlTextReader reader = new XmlTextReader("http://www.cbr.ru/scripts/XML_daily.asp");
-            string USDXml = "";
-            string EuroXML = "";
-            while (reader.Read())
+            /// <summary>
+            /// Закодированное строковое обозначение валюты
+            /// Например: USD, EUR, AUD и т.д.
+            /// </summary>
+            public string CurrencyStringCode;
+
+            /// <summary>
+            /// Наименование валюты
+            /// Например: Доллар, Евро и т.д.
+            /// </summary>
+            public string CurrencyName;
+
+            /// <summary>
+            /// Обменный курс
+            /// </summary>
+            public double ExchangeRate;
+        }
+
+        public class CurrencyRates
+        {
+            public class ValCurs
             {
-                switch (reader.NodeType)
-                {
-                    case XmlNodeType.Element:
-                        if (reader.Name == "Valute")
-                        {
-                            if (reader.HasAttributes)
-                            {
-                                while (reader.MoveToNextAttribute())
-                                {
-                                    if (reader.Name == "ID")
-                                    {
-                                        if (reader.Value == "R01235")
-                                        {
-                                            reader.MoveToElement();
-                                            USDXml = reader.ReadOuterXml();
-                                        }
-                                    }
-
-                                    if (reader.Name == "ID")
-                                    {
-                                        if (reader.Value == "R01239")
-                                        {
-                                            reader.MoveToElement();
-                                            EuroXML = reader.ReadOuterXml();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        break;
-                }
+                [XmlElementAttribute("Valute")]
+                public ValCursValute[] ValuteList;
             }
 
-            XmlDocument usdXmlDocument = new XmlDocument();
-            usdXmlDocument.LoadXml(USDXml);
-            XmlDocument euroXmlDocument = new XmlDocument();
-            euroXmlDocument.LoadXml(EuroXML);
-            XmlNode xmlNode = usdXmlDocument.SelectSingleNode("Valute/Value");
+            public class ValCursValute
+            {
 
-            double usdValue = Convert.ToDouble(xmlNode.InnerText);
-            xmlNode = euroXmlDocument.SelectSingleNode("Valute/Value");
-            double euroValue = Convert.ToDouble(xmlNode.InnerText);
+                [XmlElementAttribute("CharCode")]
+                public string ValuteStringCode;
+
+                [XmlElementAttribute("Name")]
+                public string ValuteName;
+
+                [XmlElementAttribute("Value")]
+                public string ExchangeRate;
+            }
+
+            /// <summary>
+            /// Получить список котировок ЦБ ФР на данный момент
+            /// </summary>
+            /// <returns>список котировок ЦБ РФ</returns>
+            public static List<CurrencyRate> GetExchangeRates()
+            {
+                List<CurrencyRate> result = new List<CurrencyRate>();
+                XmlSerializer xs = new XmlSerializer(typeof(ValCurs));
+                XmlReader xr = new XmlTextReader(@"http://www.cbr.ru/scripts/XML_daily.asp");
+                foreach (ValCursValute valute in ((ValCurs)xs.Deserialize(xr)).ValuteList)
+                {
+                    result.Add(new CurrencyRate()
+                    {
+                        CurrencyName = valute.ValuteName,
+                        CurrencyStringCode = valute.ValuteStringCode,
+                        ExchangeRate = Convert.ToDouble(valute.ExchangeRate)
+                    });
+                }
+                return result;
+            }
+        }
+        static void Main(string[] args)
+        {
+            List<CurrencyRate> tmp = CurrencyRates.GetExchangeRates();
+            foreach (CurrencyRate cr in tmp)
+            {
+                Console.WriteLine("{0} {1} = {2}", cr.CurrencyName, cr.CurrencyStringCode, cr.ExchangeRate);
+            }
+            Console.ReadKey();  // задержка экрана
 
         }
     }

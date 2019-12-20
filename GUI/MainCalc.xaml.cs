@@ -102,7 +102,7 @@ namespace WelcomeScreen
 
         public void SquareRootClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "\u221A";
+            EnterField.Text += "\u221A" + "()";
         }
 
         public void DegreeClick(object sender, RoutedEventArgs e)

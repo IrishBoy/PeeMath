@@ -97,8 +97,5 @@ namespace PeeMath
         {
             return Math.Pow(a, 1 / b);
         }
-
-        
-
     }
 }

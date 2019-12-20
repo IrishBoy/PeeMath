@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace PeeMath
 {
-    public static class Parser
+    public class Parser
     {
-        public static bool TryParse(string str)
+        public bool TryParse(string str)
         {
             try
             {
@@ -21,9 +21,9 @@ namespace PeeMath
             }
         }
 
-        public static double Parsing(string str)
+        public double Parsing(string str)
         {
-            string[] func = { "sin", "cos", "ctg", "tg", "arcsin", "arccos", "arcctg", "arctg" };
+            string[] func = {"sin", "cos", "ctg", "tg", "arcsin", "arccos", "arcctg", "arctg", "\u221A", };
             for (int i = 0; i < func.Length; i++)
             {
                 Match matchFunc = Regex.Match(str, string.Format(@"{0}\(({1})\)", func[i], @"[1234567890\.\+\-\*\/^%]*"));
@@ -59,6 +59,10 @@ namespace PeeMath
                         case 7:
                             return Parsing(left + Calculations.Arcctg(Convert.ToDouble(middle)) + right);
 
+                        case 8:
+                            return Parsing(left + Calculations.SquareRoot(Convert.ToDouble(middle)) + right);
+
+
                     }
                 }
             }
@@ -81,26 +85,26 @@ namespace PeeMath
             {
                 string left = str.Substring(0, match.Index);
                 string right = str.Substring(match.Index + match.Length);
-                string val = ParseAct(match).ToString(CultureInfo.InvariantCulture);
+                string val = ParseAct(match).ToString(CultureInfo.CreateSpecificCulture("fr-FR"));
                 return Parsing(string.Format("{0}{1}{2}", left, val, right));
             }
 
             // Парсинг числа
             try
             {
-                return double.Parse(str, CultureInfo.InvariantCulture);
+                return double.Parse(str, CultureInfo.CreateSpecificCulture("fr-FR"));
             }
             catch (FormatException)
             {
-                throw new FormatException(string.Format("Неверная входная строка '{0}'", str));
+                throw new FormatException(string.Format("Wrong format '{0}'", str));
             }
         }
 
 
-        private static double ParseAct(Match match)
+        private double ParseAct(Match match)
         {
-            double a = double.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture);
-            double b = double.Parse(match.Groups[3].Value, CultureInfo.InvariantCulture);
+            double a = double.Parse(match.Groups[1].Value, CultureInfo.CreateSpecificCulture("fr-FR"));
+            double b = double.Parse(match.Groups[3].Value, CultureInfo.CreateSpecificCulture("fr-FR"));
 
             switch (match.Groups[2].Value)
             {
@@ -123,7 +127,7 @@ namespace PeeMath
                     return a % b;
 
                 default:
-                    throw new FormatException(string.Format("Неверная входная строка '{0}'", match.Value));
+                    throw new FormatException(string.Format("Wrong format '{0}'", match.Value));
             }
         }
     }
