@@ -110,7 +110,7 @@ namespace WelcomeScreen
 
         public void RadianClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text += "(rad)";
+            EnterField.Text += "rad(x)";
         }
         public void EqualClick(object sender, RoutedEventArgs e)
         {
