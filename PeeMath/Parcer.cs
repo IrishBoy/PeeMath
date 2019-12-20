@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace PeeMath
 {
+    //class Parser got from https://vamireh.livejournal.com/6673.html and adapted to our code
     public class Parser
     {
         public bool TryParse(string str)
@@ -69,7 +70,6 @@ namespace PeeMath
                         case 10:
                             string[] numbers = middle.Split(",");
                             return Parsing(left + Calculations.Log(Convert.ToDouble(numbers[0]), Convert.ToDouble(numbers[1])));
-
                         case 11:
                             return Parsing(left + Calculations.Rad(Convert.ToDouble(middle)) + right);
 
@@ -95,14 +95,14 @@ namespace PeeMath
             {
                 string left = str.Substring(0, match.Index);
                 string right = str.Substring(match.Index + match.Length);
-                string val = ParseAct(match).ToString(CultureInfo.CreateSpecificCulture("fr-FR"));
+                string val = ParseAct(match).ToString(CultureInfo.InvariantCulture);
                 return Parsing(string.Format("{0}{1}{2}", left, val, right));
             }
 
             // Парсинг числа
             try
             {
-                return double.Parse(str, CultureInfo.CreateSpecificCulture("fr-FR"));
+                return double.Parse(str, CultureInfo.InvariantCulture);
             }
             catch (FormatException)
             {
@@ -113,8 +113,8 @@ namespace PeeMath
 
         private double ParseAct(Match match)
         {
-            double a = double.Parse(match.Groups[1].Value, CultureInfo.CreateSpecificCulture("fr-FR"));
-            double b = double.Parse(match.Groups[3].Value, CultureInfo.CreateSpecificCulture("fr-FR"));
+            double a = double.Parse(match.Groups[1].Value, CultureInfo.InvariantCulture);
+            double b = double.Parse(match.Groups[3].Value, CultureInfo.InvariantCulture);
 
             switch (match.Groups[2].Value)
             {

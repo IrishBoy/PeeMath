@@ -1,32 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
 namespace PeeMath
 {
-    public class Program
+    //got class ValuteRate from http://www.cyberforum.ru/windows-forms/thread941874.html and adapted to our cod
+    public class ValuteRate
     {
         public class CurrencyRate
         {
-            /// <summary>
-            /// Закодированное строковое обозначение валюты
-            /// Например: USD, EUR, AUD и т.д.
-            /// </summary>
             public string CurrencyStringCode;
-
-            /// <summary>
-            /// Наименование валюты
-            /// Например: Доллар, Евро и т.д.
-            /// </summary>
             public string CurrencyName;
-
-            /// <summary>
-            /// Обменный курс
-            /// </summary>
             public double ExchangeRate;
         }
 
@@ -51,10 +37,6 @@ namespace PeeMath
                 public string ExchangeRate;
             }
 
-            /// <summary>
-            /// Получить список котировок ЦБ ФР на данный момент
-            /// </summary>
-            /// <returns>список котировок ЦБ РФ</returns>
             public static List<CurrencyRate> GetExchangeRates()
             {
                 List<CurrencyRate> result = new List<CurrencyRate>();
@@ -72,15 +54,8 @@ namespace PeeMath
                 return result;
             }
         }
-        static void Main(string[] args)
-        {
-            List<CurrencyRate> tmp = CurrencyRates.GetExchangeRates();
-            foreach (CurrencyRate cr in tmp)
-            {
-                Console.WriteLine("{0} {1} = {2}", cr.CurrencyName, cr.CurrencyStringCode, cr.ExchangeRate);
-            }
-            Console.ReadKey();  // задержка экрана
 
-        }
+
+        public static List<CurrencyRate> tmp = CurrencyRates.GetExchangeRates();
     }
 }
