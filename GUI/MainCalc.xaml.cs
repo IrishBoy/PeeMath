@@ -87,7 +87,7 @@ namespace WelcomeScreen
 
         public void FactorialClick(object sender, RoutedEventArgs e)
         {
-            EnterField.Text = EnterField.Text.Insert(EnterField.CaretIndex, "(x)!");            
+            block.Show();
         }
 
         public void ClearClick(object sender, RoutedEventArgs e)
@@ -233,11 +233,11 @@ namespace WelcomeScreen
                 int cur_int = (int)cur_euros;
                 if(cur_int == cur_euros)
                 {
-                    EurToRub.Text = cur_euros.ToString();
+                    EurToDol.Text = cur_euros.ToString();
                 }
                 else
                 {
-                    EurToRub.Text = cur_euros.ToString("F6");
+                    EurToDol.Text = cur_euros.ToString("F6");
                 }
                 
             }
@@ -247,11 +247,11 @@ namespace WelcomeScreen
                 int cur_int = (int)cur_dollars;
                 if(cur_int == cur_dollars)
                 {
-                    RubToEuro.Text = cur_dollars.ToString();
+                    DolToEur.Text = cur_dollars.ToString();
                 }
                 else
                 {
-                    RubToEuro.Text = cur_dollars.ToString("F6");
+                    DolToEur.Text = cur_dollars.ToString("F6");
                 }
                 
 
