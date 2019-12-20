@@ -243,15 +243,15 @@ namespace WelcomeScreen
             }
             else if (!(Double.TryParse(Dol_Eur, out euros)) && (Double.TryParse(Eur_Dol, out dollars)))
             {
-                double cur_rubbles = currs.FromEuroToDol(double.Parse(Eur_Dol, styles, cur_culture));
-                int cur_int = (int)cur_rubbles;
-                if(cur_int == cur_rubbles)
+                double cur_dollars = currs.FromEuroToDol(double.Parse(Eur_Dol, styles, cur_culture));
+                int cur_int = (int)cur_dollars;
+                if(cur_int == cur_dollars)
                 {
-                    RubToEuro.Text = cur_rubbles.ToString();
+                    RubToEuro.Text = cur_dollars.ToString();
                 }
                 else
                 {
-                    RubToEuro.Text = cur_rubbles.ToString("F6");
+                    RubToEuro.Text = cur_dollars.ToString("F6");
                 }
                 
 
