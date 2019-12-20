@@ -100,7 +100,7 @@ namespace PeeMath
 
         public static double Rad(double a)
         {
-            return a * 180 / Math.PI;
+            return Math.Round(a * 180 / Math.PI, 6);
         }
 
     }
