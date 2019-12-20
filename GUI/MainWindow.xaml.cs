@@ -32,10 +32,5 @@ namespace WelcomeScreen
             this.Close();
         }
 
-        private void FAQButtonClick(object sender, RoutedEventArgs e)
-        {
-            FAQWind.Show();
-            this.Close();
-        }
     }
 }
